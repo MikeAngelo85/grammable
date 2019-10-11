@@ -76,4 +76,4 @@ end
 
 gem 'simple_form'
 gem 'devise'
-
+gem 'webdrivers', '~> 3.0'
