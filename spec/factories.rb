@@ -3,13 +3,13 @@ FactoryBot.define do
     sequence :email do |n|
       "dummyEmail#{n}@gmail.com" 
     
-    password { "secretPassword" }
-    password_confirmation { "secretPassword" }
+    password   "secretPassword" 
+    password_confirmation  "secretPassword" 
 
   end
 
   factory :gram do
-    message { "hello" }
+    message  "hello"  
     association :user
   end
 end
