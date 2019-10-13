@@ -7,7 +7,7 @@ class GramsController < ApplicationController
     @gram.destroy
     redirect_to root_path
   end
-  
+
   def update
     @gram = Gram.find_by_id(params[:id])
     return render_not_found if @gram.blank?
@@ -57,4 +57,4 @@ class GramsController < ApplicationController
   def render_not_found
     render plain: 'Not Found :(', status: :not_found
   end
-end
+
