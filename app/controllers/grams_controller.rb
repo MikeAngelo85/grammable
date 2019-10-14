@@ -1,5 +1,5 @@
 class GramsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def destroy
     @gram = Gram.find_by_id(params[:id])
@@ -17,7 +17,7 @@ class GramsController < ApplicationController
     else
     return render :edit, status: :unprocessable_entity
   end
-  end
+end
 
   def new
     @gram = Gram.new
@@ -30,14 +30,15 @@ class GramsController < ApplicationController
     @gram = Gram.find_by_id(params[:id])
     if @gram.blank?
     return render_not_found if @gram.blank?
-    end
+  end
 
   def edit
     @gram = Gram.find_by_id(params[:id])
-    if @gram.blank?
     return render_not_found if @gram.blank?
-   end
+    if @gram.user != current_user
+      render plain: 'Forbidden :(', status: :forbidden
   end
+end
 
   def create
    @gram = current_user.grams.create(gram_params)
@@ -46,7 +47,7 @@ class GramsController < ApplicationController
   else
     render :new, status: :unprocessable_entity
   end
-  end
+end
 
   private
 
@@ -57,4 +58,7 @@ class GramsController < ApplicationController
   def render_not_found
     render plain: 'Not Found :(', status: :not_found
   end
+ end
+end
+
 
