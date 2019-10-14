@@ -122,7 +122,7 @@ RSpec.describe GramsController, type: :controller do
       get :show, params: { id: 'TACOCAT' }
       expect(response).to have_http_status(:not_found)
     end
-  
+  end
 
   describe "grams#index action" do
     it "should successfully show the page" do
@@ -175,7 +175,8 @@ end
       expect(response).to have_http_status(:unprocessable_entity)
       expect(gram_count).to eq Gram.count
     end
-  end
+  
+
 
 
 
