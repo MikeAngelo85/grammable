@@ -79,6 +79,6 @@ end
 gem 'simple_form'
 gem 'devise'
 gem 'webdrivers', '~> 3.0'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem "figaro"
 gem "fog-aws"
